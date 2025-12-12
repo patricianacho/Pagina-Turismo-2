@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lugares Turísticos de La Paz</title>
+    <!-- Font Awesome CDN para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-xh6Rj2F2U6dU+q0VYYP6s6h+6TQmlM1G7oyt0GJHhIuD+Wc0c9oUo5eD8mCkKZgG3JH0NHqVfJhb5FUz6V1p6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
@@ -16,32 +18,43 @@
 
         body {
             line-height: 1.6;
-            background-color: #f5f6fa;
+            background-color: #fff8f0;
             color: #333;
         }
 
+        /* Header con Parallax */
         header {
-            /* La imagen de cabecera ya está definida por URL en tu CSS */
-            background: url('https://upload.wikimedia.org/wikipedia/commons/0/08/La_Paz_view_from_El_Alto.jpg') center/cover no-repeat;
+            position: relative;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/0/08/La_Paz_view_from_El_Alto.jpg') center/cover no-repeat fixed;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #fff;
-            padding: 6rem 1rem;
-            text-align: center;
         }
 
-        header h1 {
+        .header-overlay {
+            background-color: rgba(243, 156, 18, 0.7);
+            padding: 3rem 1rem;
+            text-align: center;
+            border-radius: 15px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .header-overlay h1 {
             font-size: 3rem;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
         }
 
-        header p {
+        .header-overlay p {
             font-size: 1.2rem;
-            color: #ecf0f1;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
         }
 
+        /* Navegación */
         nav {
-            background-color: #34495e;
+            background-color: #e67e22;
         }
 
         nav ul {
@@ -56,16 +69,21 @@
         }
 
         nav ul li a {
-            color: #ecf0f1;
+            color: #fff3e0;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
         }
 
         nav ul li a:hover {
-            color: #f39c12;
+            color: #ffb74d;
         }
 
+        /* Secciones */
         section {
             padding: 4rem 1rem;
             max-width: 1200px;
@@ -75,10 +93,11 @@
         section h2 {
             text-align: center;
             margin-bottom: 2rem;
-            color: #2c3e50;
+            color: #d35400;
             font-size: 2rem;
         }
 
+        /* Tarjetas */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -86,16 +105,24 @@
         }
 
         .card {
-            background-color: #fff;
+            background-color: #fff3e0;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(230, 126, 34, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .card.show {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease-out;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 12px 20px rgba(230, 126, 34, 0.4);
         }
 
         .card img {
@@ -110,16 +137,17 @@
 
         .card-content h3 {
             margin-bottom: 0.5rem;
-            color: #2c3e50;
+            color: #e67e22;
         }
 
         .card-content p {
-            color: #7f8c8d;
+            color: #7f5e3c;
         }
 
+        /* Footer */
         footer {
-            background-color: #2c3e50;
-            color: #ecf0f1;
+            background-color: #e67e22;
+            color: #fff3e0;
             text-align: center;
             padding: 2rem 1rem;
             margin-top: 2rem;
@@ -129,11 +157,24 @@
             margin-bottom: 0.5rem;
         }
 
-        @media (max-width: 600px) {
-            header h1 {
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-overlay h1 {
                 font-size: 2rem;
             }
 
+            .header-overlay p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
             nav ul {
                 flex-direction: column;
             }
@@ -145,32 +186,37 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Descubre La Paz</h1>
-        <p>Explora los lugares más increíbles de la ciudad</p>
+        <div class="header-overlay">
+            <h1>Descubre La Paz</h1>
+            <p>Explora los lugares más increíbles de la ciudad</p>
+        </div>
     </header>
 
+    <!-- Navegación con iconos -->
     <nav>
         <ul>
-            <li><a href="#historia">Historia</a></li>
-            <li><a href="#naturaleza">Naturaleza</a></li>
-            <li><a href="#cultura">Cultura</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#historia"><i class="fas fa-landmark"></i> Historia</a></li>
+            <li><a href="#naturaleza"><i class="fas fa-leaf"></i> Naturaleza</a></li>
+            <li><a href="#cultura"><i class="fas fa-theater-masks"></i> Cultura</a></li>
+            <li><a href="#contacto"><i class="fas fa-phone"></i> Contacto</a></li>
         </ul>
     </nav>
 
+    <!-- Sección Historia -->
     <section id="historia">
         <h2>Lugares Históricos</h2>
         <div class="cards">
             <div class="card">
-                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Plaza_Murillo_La_Paz.jpg" alt="Plaza Murillo">
                 <div class="card-content">
                     <h3>Plaza Murillo</h3>
                     <p>Centro histórico y político de La Paz, rodeado de edificios emblemáticos y museos.</p>
                 </div>
             </div>
             <div class="card">
-                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Catedral_de_La_Paz_Bolivia.jpg" alt="Catedral de La Paz">
                 <div class="card-content">
                     <h3>Catedral de La Paz</h3>
                     <p>Icono arquitectónico de la ciudad que refleja la historia religiosa y cultural de Bolivia.</p>
@@ -179,18 +225,19 @@
         </div>
     </section>
 
+    <!-- Sección Naturaleza -->
     <section id="naturaleza">
         <h2>Naturaleza y Paisajes</h2>
         <div class="cards">
             <div class="card">
-                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Valle_de_la_Luna.jpg" alt="Valle de la Luna">
                 <div class="card-content">
                     <h3>Valle de la Luna</h3>
                     <p>Un paisaje surrealista de formaciones rocosas únicas, perfecto para caminatas y fotografía.</p>
                 </div>
             </div>
             <div class="card">
-                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Teleferico_La_Paz.jpg" alt="Teleférico La Paz">
                 <div class="card-content">
                     <h3>Teleférico</h3>
                     <p>Ofrece vistas panorámicas espectaculares de la ciudad y sus montañas circundantes.</p>
@@ -199,18 +246,19 @@
         </div>
     </section>
 
+    <!-- Sección Cultura -->
     <section id="cultura">
         <h2>Cultura y Tradiciones</h2>
         <div class="cards">
             <div class="card">
-                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Cholita_Wrestling.jpg" alt="Cultura Cholita">
                 <div class="card-content">
                     <h3>Cultura Cholita</h3>
                     <p>Sumérgete en las tradiciones locales y festivales coloridos de La Paz.</p>
                 </div>
             </div>
             <div class="card">
-                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Mercado_Los_Pacos.jpg" alt="Mercados de La Paz">
                 <div class="card-content">
                     <h3>Mercados Locales</h3>
                     <p>Explora los mercados de la ciudad y disfruta de artesanías y gastronomía típica.</p>
@@ -219,9 +267,27 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer id="contacto">
         <p>&copy; 2025 Descubre La Paz</p>
         <p>Contacto: info@descubrelaPaz.com | +591 123 4567</p>
     </footer>
+
+    <!-- Script para animación de tarjetas -->
+    <script>
+        const cards = document.querySelectorAll('.card');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {threshold: 0.2});
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
