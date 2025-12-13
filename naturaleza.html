@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naturaleza - Lugares Turísticos de La Paz</title>
+    <style>
+        /* 1. Paleta de Colores y Variables Profesionales (Con acento Naranja) */
+        :root {
+            --color-principal: #34495e; /* Azul Grisáceo Oscuro (Fondo de Footer y Cuerpo) */
+            --color-secundario: #f39c12; /* Naranja/Dorado (Acento) */
+            --color-header-fondo: #e67e22; /* Naranja Brillante/Calabaza para el Header */
+            --color-header-texto: #ffffff; /* Blanco para contraste llamativo */
+            --color-tarjeta-titulo: #d35400; /* Naranja más oscuro (Títulos de Tarjeta) */
+            --color-fondo-claro: #fcfcfc; /* Fondo de la página */
+            --color-claro: #ffffff;
+            --color-texto-oscuro: #2c3e50;
+            --sombra-suave: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 2. Reset Básico y Tipografía */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--color-texto-oscuro);
+            background-color: var(--color-fondo-claro);
+            scroll-behavior: smooth;
+        }
+
+        /* 3. Estructura y Contenedores */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        
+        /* 4. Encabezado de la Subpágina (Header) */
+        .section-header {
+            background-color: var(--color-header-fondo); 
+            color: var(--color-header-texto);
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); 
+            border-bottom: 5px solid var(--color-secundario); 
+        }
+
+        .section-header h1 {
+            font-size: 2.8em;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); 
+        }
+        
+        .section-header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-content {
+            padding: 50px 0;
+        }
+
+        .section-content h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--color-tarjeta-titulo); 
+            font-size: 2.2em;
+            border-bottom: 2px solid #ddd;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        
+        .section-content .text-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* 5. Estilos de Tarjetas (Cards) */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--color-claro);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: left;
+            box-shadow: var(--sombra-suave);
+            border-top: 5px solid var(--color-secundario); 
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            color: var(--color-tarjeta-titulo);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            min-height: 40px; 
+        }
+
+        .card-content p {
+            font-size: 0.95em;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        /* 6. Enlace para volver al inicio */
+        .back-link {
+            display: inline-block;
+            background-color: var(--color-secundario);
+            color: var(--color-principal);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 40px;
+        }
+        
+        .back-link:hover {
+            background-color: #e0a500;
+        }
+        
+        .center-link {
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        /* 7. Footer */
+        footer {
+            background-color: var(--color-principal);
+            color: var(--color-claro);
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="section-header">
+        <div class="container">
+            <h1>⛰️ Naturaleza y Paisajes de Altura</h1>
+            <p>Explora el contraste geográfico de La Paz, desde los picos nevados hasta los valles secos.</p>
+        </div>
+    </div>
+
+    <div class="container section-content">
+        <div style="text-align: center;">
+            <h2>Joyas Naturales y Miradores</h2>
+        </div>
+        
+        <p class="text-intro">Rodeada por la Cordillera Real, La Paz ofrece paisajes únicos producto de la altitud y la erosión. La ciudad misma es un mirador natural que combina urbanismo y geografía espectacular.</p>
+
+        <div class="cards">
+            
+            <div class="card">
+                
+                <img src="images/Valle.jpg" alt="Valle de la Luna">
+                <div class="card-content">
+                    <h3>Valle de la Luna: El Paisaje Surrealista</h3>
+                    <p>Ubicado en la zona sur, es un área donde la erosión ha creado un laberinto de formaciones rocosas arcillosas que asemejan la superficie lunar. Ideal para una caminata fácil y una inmersión geológica. Es un testimonio de la acción del viento y la lluvia en la geografía paceña.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                
+                <img src="images/Teleferico.jpg" alt="Teleférico La Paz">
+                <div class="card-content">
+                    <h3>Mi Teleférico: Vistas Panorámicas</h3>
+                    <p>Aunque es un sistema de transporte, ofrece el recorrido turístico más impresionante. Sus diferentes líneas conectan La Paz y El Alto, brindando vistas aéreas sin igual del Illimani y la topografía en forma de cuenca de la ciudad. Es el mirador más extenso y moderno.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                
+                <img src="images/Killi.jpeg" alt="Mirador Killi Killi">
+                <div class="card-content">
+                    <h3>Mirador Killi Killi: El Corazón de la Vista</h3>
+                    <p>Este mirador histórico proporciona una de las mejores vistas de 360 grados de La Paz. Desde aquí se entiende perfectamente la depresión geográfica donde se asienta la ciudad y se aprecian tanto los edificios modernos como las casonas antiguas.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                
+                <img src="images/Illimani.jpeg" alt="Montaña Illimani">
+                <div class="card-content">
+                    <h3>El Illimani: Guardián de La Paz</h3>
+                    <p>Aunque no está dentro de la ciudad, esta montaña nevada de 6.462 metros es el símbolo icónico y natural de La Paz. Domina el horizonte desde casi cualquier punto y forma parte esencial de la identidad geográfica y cultural de la región.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="center-link">
+             <a href="index.html" class="back-link">Volver a la página principal</a>
+        </div>
+       
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Exploración Natural de La Paz | Todos los derechos reservados.</p>
+            <p>Contacto y referencias geográficas: info@naturalezalapaz.com</p>
+        </div>
+    </footer>
+</body>
+</html>
